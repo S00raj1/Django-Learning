@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        .sign{
+            width: 600px;
+            height: 400px;
+            background-color: rgb(171, 206, 207);
+            border-radius: 5px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+            width: 400px;
+        }
+        form input{
+            margin: 15px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sign">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="fname">First name</label>
+            <input type="text" name="fname" placeholder="Enter first name">
+            <label for="lname">Last name</label>
+            <input type="text" name="lname" placeholder="Enter last name">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="example@gmail.com">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="enter password">
+            <label for="cpassword">Confirm Password</label>
+            <input type="password" name="cpassword" placeholder="enter same password">
+
+            <button>signup</button>
+
+
+            <p>already have an account? <a href="/accounts/login">login</a> </p>
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form{
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      background-color: rgb(207, 189, 189);
+      border-radius: 10px;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      justify-items: center;
+      margin: 100px;
+    }
+    form input{
+      padding-left: 8px;
+      border-radius: 4px;
+      position: relative;
+      bottom: 20px;
+    }
+    button{
+      position: relative;
+      top: 20px;
+      height: 30px;
+      width: 60px;
+      /* background-color: rgb(98, 98, 230); */
+    }
+    a{
+      text-decoration: none;
+    }
+    .message{
+      position: relative;
+      top: 40px;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="form">
+    <form action="/user_login" method="post" >
+      {% csrf_token %}
+      <label for="username">Username:</label>
+      <input type="text" name="username" placeholder="Username" style="margin: 10px; height: 30px;">
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" style="margin: 10px; height: 30px;">
+    
+      <button style="width: 140px; margin-left: 50px;">Login</button>
+       <div class="message"><p>don't have an account?  <a href="/accounts/signup"> SignUp</a></p>
+
+       </div>
+  </form>
+</div>
+</body>  
+</html>
