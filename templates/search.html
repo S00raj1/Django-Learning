@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block main %}
+    <center>
+        {% if search %}
+            <h1>You searched for</h1>
+            <br>
+            {% for s in search %}
+               <h2>{{s}}</h2>
+               <img src="{{s.image.url}}" alt="" style="height: 200px; width: 500px;"> 
+               <br>
+               <button style="margin-top: 10px;"> <a href="{% url 'details' s.id %}">Book now </a> </button>
+
+            {% endfor %}
+        {% else %}
+            <h1>Sorry {{searchs}} not found</h1>
+        {% endif %}
+    </center>
+{% endblock %}

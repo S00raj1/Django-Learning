@@ -11,31 +11,31 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light " style="background-color:#1E293B;" >
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Travels & Tours</a>
+      <a class="navbar-brand" href="/home">Travels & Tours</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Sites
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Bhaktapur</a></li>
-              <li><a class="dropdown-item" href="#">Kathmandu</a></li>
-              <li><a class="dropdown-item" href="#">Pokhara</a></li>
-              <li><a class="dropdown-item" href="#">Dharan</a></li>
-              <!-- <li><hr class="dropdown-divider"></li> -->
-              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              <li><a class="dropdown-item" href="#Bhaktapur">Bhaktapur</a></li>
+              <li><a class="dropdown-item" href="#Kathmandu">Kathmandu</a></li>
+              <li><a class="dropdown-item" href="#Lalitpur">Lalitpur</a></li>
+              <li><a class="dropdown-item" href="#Outside">Outside Valley</a></li>
+               <li><hr class="dropdown-divider"></li>
+               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact us</a>
           </li>
@@ -44,17 +44,24 @@
           </li> -->
         </ul>
         <div class="rightside" style=" display:flex ; justify-content: space-around;">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" method="post" action="{% url 'search' %}">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <button class="btn btn-outline-success" > <a href="/accounts/login"> {{title}}</a></button>
+        <button class="btn btn-outline-success" > <a href="/accounts/logout" style="text-decoration: none;color: green;" > Logout</a></button>
+        <!-- <input type="submit" value="Logout" > -->
         </div>
       </div>
     </div>
   </nav>
   {% block imageslide %}
   {% endblock %}
+  <div class="mian-cont" >
+    {% block main  %}
+
+    {% endblock %}
+  </div>
   <footer class="base-footer">
     <h1>Tours & Travels© </h1>  
   </footer>

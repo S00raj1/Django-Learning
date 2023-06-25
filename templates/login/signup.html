@@ -29,20 +29,27 @@
     <div class="sign">
         <form action="" method="POST">
             {% csrf_token %}
-            <label for="fname">First name</label>
-            <input type="text" name="fname" placeholder="Enter first name">
-            <label for="lname">Last name</label>
-            <input type="text" name="lname" placeholder="Enter last name">
+            <label for="first_name">First name</label>
+            <input type="text" name="first_name" placeholder="Enter first name" required>
+            <label for="last_name">Last name</label>
+            <input type="text" name="last_name" placeholder="Enter last name" required>
             <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Enter username">
+            <input type="text" name="username" placeholder="Enter username" required>
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="example@gmail.com">
+            <input type="email" name="email" placeholder="example@gmail.com" required>
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="enter password">
+            <input type="password" name="password" placeholder="enter password" required>
             <label for="cpassword">Confirm Password</label>
-            <input type="password" name="cpassword" placeholder="enter same password">
+            <input type="password" name="cpassword" placeholder="enter same password" required>
 
-            <button>signup</button>
+            <input type="submit" value="Signup">
+            {% if messages %}
+            <ul class="messages">
+                {% for messages in messages %}
+                <li style="list-style: none; color: red;">{{messages}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
 
 
             <p>already have an account? <a href="/accounts/login">login</a> </p>

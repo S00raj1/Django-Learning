@@ -1,0 +1,45 @@
+{% extends 'admin/base1.html' %}
+{% block content %}
+<div class="input" style="margin-top: 20px;">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-input">
+            <label for="name">Location Name</label>
+            <input type="text" name="name" placeholder="Enter location name">
+        </div>
+        <div class="form-input">
+            <label for="location">Address</label>
+            <select name="location" > 
+                <option value="Kathmandu">Kathmandu</option>
+                <option value="Bhaktapur">Bhaktapur</option>
+                <option value="Lalitpur">Lalitpur</option>
+                <option value="Outside Valley">Outside Valley</option>
+            </select>
+            
+        </div>
+        <div class="form-input">
+            <label for="description">Description</label>
+            <input type="text" name="description" placeholder="Enter location description">
+        </div>
+        <div class="form-input">
+            <label for="image">Image</label>
+            <input type="file" name="image">
+        </div>
+        <div class="form-input">
+            <label for="price">Price</label>
+            <input type="text" name="price" placeholder="Enter location price">
+        </div>
+        <div class="submit">
+            <input type="submit" value="Submit">
+        </div>
+        
+    </form>
+    {% if messages %}
+    <ul class="messages">
+        {% for messages in messages %}
+        <li style="list-style: none; color: red;">{{messages}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

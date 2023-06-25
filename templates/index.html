@@ -12,7 +12,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>Pashupatinath Temple</h5>
         <p>A holy place for hindus</p>
-        <button type="button" class="btn btn-primary btn-lg">Explore more</button>
+        <!-- <button type="button" class="btn btn-primary btn-lg">Explore more</button> -->
       </div>
     </div>
     <div class="carousel-item">
@@ -20,7 +20,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>Syambhunath Temple</h5>
         <p>It is also called as monkey temple. A holy place for hindus as well as bouddhists</p>
-        <button type="button" class="btn btn-primary btn-lg">Explore more</button>
+        <!-- <button type="button" class="btn btn-primary btn-lg">Explore more</button> -->
       </div>
     </div>
     <div class="carousel-item">
@@ -28,7 +28,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>Bouddhanath Stupa</h5>
         <p>A holy place for bouddhists</p>
-        <button type="button" class="btn btn-primary btn-lg">Explore more</button>
+        <!-- <button type="button" class="btn btn-primary btn-lg">Explore more</button> -->
       </div>
     </div>
   </div>
@@ -41,4 +41,77 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+{% endblock %}
+{% block main%}
+
+  
+  <div class="main-data" style="display: flex; width: 800px; height: 50vh; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Kathmandu</h1>
+    {% for data in data %} 
+    <div id="kathmandu"> 
+      {% if data.location == "Kathmandu" %}
+        <div class="main-data-inside" style="display: flex; flex-direction: column; padding-top: 50px;">
+          <h5>{{data.name}}</h5>
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
+        </div> 
+      {% endif %}
+    </div>
+  
+ 
+    {% endfor %}
+  </div>
+  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Bhaktapur</h1>
+    {% for data in data %} 
+    <div id="kathmandu"> 
+      {% if data.location == "Bhaktapur" %}
+        <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
+          <h2>{{data.name}}</h2>
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
+        </div> 
+      {% endif %}
+    </div>
+  
+ 
+    {% endfor %}
+  </div>
+  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Lalitpur</h1>
+    {% for data in data %} 
+    <div id="kathmandu"> 
+      {% if data.location == "Lalitpur" %}
+        <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
+          <h2>{{data.name}}</h2>
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
+        </div> 
+      {% endif %}
+    </div>
+  
+ 
+    {% endfor %}
+  </div>
+  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Outside Valley</h1>
+    {% for data in data %} 
+    <div id="kathmandu"> 
+      {% if data.location == "Outside" %}
+        <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
+          <h2>{{data.name}}</h2>
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
+        </div> 
+      {% endif %}
+    </div>
+  
+ 
+    {% endfor %}
+  </div>
+
 {% endblock %}

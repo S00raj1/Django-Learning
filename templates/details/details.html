@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+ 
+    <img src="{{data.image.url}}" alt="eqeqe">
+
+    <h1>{{data.name}}</h1>
+    <form  method="post">
+        {% csrf_token %}
+        <div class="form-data">
+            <label for="pname">Name</label>
+            <input type="text" name="pname" placeholder="Enter your name">
+        </div>
+        
+        <div class="form-data">
+            <label for="guide">Select Guide</label>
+            <select name="guide" > 
+                {% for g in guide %}
+                    <option value="{{g.name}}">{{g.name}}</option>
+                {% endfor %}
+                
+            </select>
+            
+            <!-- <input type="text" name="location" placeholder="Enter address"> -->
+        </div>
+        <div class="form-data">
+            <label for="people">No. of People</label>
+            <input type="text" name="people" placeholder="Enter no. of people">
+        </div>
+        <div class="form-data">
+            <label for="sdate">From</label>
+            <input type="date" name="sdate">
+        </div>
+        <div class="form-data">
+            <label for="edate">To</label>
+            <input type="date" name="edate">
+        </div>
+        <div class="form-data">
+            <input type="submit" value="Book">
+        </div>
+
+    </form>
+    {% if messages %}
+    <ul class="messages">
+        {% for messages in messages %}
+        <li style="list-style: none; color: green;">{{messages}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+
+
+
+{% endblock %}

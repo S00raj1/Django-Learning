@@ -47,19 +47,27 @@
       top: 40px;
     }
   </style>
-  <title>Document</title>
+  <title>{{title}}</title>
 </head>
 <body>
+  <button> <a href="/admin">admin</a> </button>
   <div class="form">
-    <form action="/user_login" method="post" >
+    <form action='' method="post" >
       {% csrf_token %}
       <label for="username">Username:</label>
-      <input type="text" name="username" placeholder="Username" style="margin: 10px; height: 30px;">
+      <input type="text" name="username" placeholder="Username" style="margin: 10px; height: 30px;" required>
       <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" style="margin: 10px; height: 30px;">
+      <input type="password" name="password" placeholder="Password" style="margin: 10px; height: 30px;" required>
     
-      <button style="width: 140px; margin-left: 50px;">Login</button>
-       <div class="message"><p>don't have an account?  <a href="/accounts/signup"> SignUp</a></p>
+      <input type="submit" value="Login">
+      {% if messages %}
+      <ul class="messages">
+        {% for messages in messages %}
+        <li style="list-style: none; color: red;">{{messages}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="message"><p>don't have an account?  <a href="/accounts/signup"> SignUp</a></p>
 
        </div>
   </form>
