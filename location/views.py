@@ -7,10 +7,12 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def admin_view(request):
-    return render(request,"admin/admin.html",{'title':'Home'})
+    data = Add_location.objects.all()
+    return render(request,"admin/admin.html",{'title':'Home','data':data})
 
 
 @csrf_exempt
+
 def add(request):
     try:
         if request.method == 'POST':

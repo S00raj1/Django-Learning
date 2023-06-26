@@ -55,21 +55,9 @@
 
   {% endblock %}
   {% block main%}
-<div id="kathmandu"> 
-  <h1 style="display: flex;justify-content: center;margin-top: 20px;">Kathmandu</h1>
-  {% if data.category == "Kathmandu" %}
-  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
-    {% for data in data %} 
-    
-      <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
-        <h2>{{data.name}}</h2>
-        <img src="{{data.image.url}}" alt="loading..">
-      </div>
-    {% endfor %}
-    </div>  
-  {% endif %}
-</div>
-{% endblock %}
+
+  
+  {% endblock %}
   <footer class="base-footer">
     <h1>Tours & Travels© </h1>  
   </footer>
