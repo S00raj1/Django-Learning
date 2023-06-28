@@ -32,13 +32,15 @@ class Guide(models.Model):
 
 
 class Book_location(models.Model):
-    name = models.ForeignKey(Add_location,null=True,on_delete=models.CASCADE)
-    guide = models.ManyToManyField(Guide, related_name ='guide')
-    pname = models.TextField(max_length=100,default='admin')
-    people = models.IntegerField(null=False)
-    sdate = models.DateField(default= date.today,null= False)
-    edate = models.DateField(default= date.today,null=False)
+    name = models.ForeignKey(Add_location,null =True ,on_delete=models.CASCADE)
+    guide = models.ManyToManyField(Guide , related_name='guide')
+   
+    Name = models.CharField(max_length=100)
+    People = models.IntegerField(null=False)
+    StartingDate = models.DateField(default= date.today,null= False)
+    EndingDate = models.DateField(default= date.today,null=False)
+   
     
     def __str__(self):
-        return self.pname
+        return self.Name
 

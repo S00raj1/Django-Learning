@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import location
 from  location.models import Add_location,Book_location,Guide
 from .models import *
+from location import forms
+from location.forms import BookForm
+
 
 # Create your views here.
 def landing(request):
@@ -34,21 +37,38 @@ def contact(request):
     
 @login_required(login_url="/accounts/login")
 def details(request,p_id):
-    try:
-        if request.method == 'POST':
-            pnames = request.POST['pname']
-            guide = request.POST['guide']
-            people = request.POST['people']
-            sdate = request.POST['sdate']
-            edate = request.POST['edate']
-            edata = Book_location.objects.create(pname=pnames,guide=guide.set(),people=people,sdate=sdate,edate=edate)
-            edata.save()
-            messages.success(request,'booked successfully')
-    except ValueError:
-        messages.error(request,'error')
-    data = Add_location.objects.get(id=p_id)
-    gdata = Guide.objects.all()
-    return render(request,'details/details.html',{'data':data,'guide':gdata})
+
+    form = BookForm()
+    data = Add_location.objects.get(id =p_id)
+
+    if request.method == 'POST':
+        form= BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/home')
+
+    return render(request,'details/abcd.html',{'form':form,
+    'data':data})
+    
+    
+    
+    
+    # try:
+    #     if request.method == 'POST':
+    #         pnames = request.POST['pname']
+    #         guide = request.POST['guide']
+    #         guide = guide
+    #         people = request.POST['people']
+    #         sdate = request.POST['sdate']
+    #         edate = request.POST['edate']
+    #         edata = Book_location.objects.create(pname=pnames,guide=guide,people=people,sdate=sdate,edate=edate)
+    #         edata.save()
+    #         messages.success(request,'booked successfully')
+    # except ValueError:
+    #     messages.error(request,'error')
+    # data = Add_location.objects.all()
+    # gdata = Guide.objects.all()
+    # return render(request,'details/details.html',{'data':data,'guide':gdata,'title':'Book'})
 
 def search(request):
     if request.method == 'POST':

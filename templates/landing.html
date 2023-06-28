@@ -95,45 +95,79 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+  
+  <div class="main-data" style="display: flex; width: 800px; height: 50vh; padding: 20px;">
     <h1 style="display: flex;justify-content: center;margin-top: 20px;">Kathmandu</h1>
+    <hr>
     {% for data in data %} 
     <div id="kathmandu"> 
       {% if data.location == "Kathmandu" %}
-        <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
-          <h2>{{data.name}}</h2>
-          <h5>{{data.id}}</h5>
-          <img src="{{data.image.url}}" alt="loading..">
-          <button> <a href="{% url 'details' data.id %}">Book now </a> </button>
+        <div class="main-data-inside" style="display: flex; flex-direction: column; padding-top: 50px;">
+          <h5>{{data.name}}</h5>
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
         </div> 
       {% endif %}
     </div>
-    <div id="Bhaktapur">
+  
+ 
+    {% endfor %}
+  </div>
+  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Bhaktapur</h1>
+    <hr>
+    {% for data in data %} 
+    <div id="kathmandu"> 
       {% if data.location == "Bhaktapur" %}
         <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
           <h2>{{data.name}}</h2>
-          <img src="{{data.image.url}}" alt="loading..">
-          fsafasf
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
         </div> 
       {% endif %}
     </div>
-    <div id="Lalitpur">
+  
+ 
+    {% endfor %}
+  </div>
+  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Lalitpur</h1>
+    <hr>
+    {% for data in data %} 
+    <div id="kathmandu"> 
       {% if data.location == "Lalitpur" %}
         <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
           <h2>{{data.name}}</h2>
-          <img src="{{data.image.url}}" alt="loading..">
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
         </div> 
       {% endif %}
     </div>
-    <div id="Outside">
-      {% if data.location == "Outside Valley" %}
+  
+ 
+    {% endfor %}
+  </div>
+  <div class="main-data" style="display: flex; width: 800px; height: 500px; padding: 20px;">
+    <h1 style="display: flex;justify-content: center;margin-top: 20px;">Outside Valley</h1>
+    <hr>
+    {% for data in data %} 
+    <div id="kathmandu"> 
+      {% if data.location == "Outside" %}
         <div class="main-data-inside" style="display: flex; flex-direction: column; margin: 40px;">
           <h2>{{data.name}}</h2>
-          <img src="{{data.image.url}}" alt="loading..">
+          <img src="{{data.image.url}}" alt="loading.." style="height: 200px;">
+          <br>
+          <button class="btn btn-outline-success " style="margin-top: 10px;"> <a href="{% url 'details' data.id %}" style="text-decoration: none; color: black;">Book now </a> </button>
         </div> 
       {% endif %}
     </div>
-  {% endfor %}
+  
+ 
+    {% endfor %}
+  </div>  
   <footer class="base-footer">
     <h1>Tours & Travels© </h1>  
   </footer>

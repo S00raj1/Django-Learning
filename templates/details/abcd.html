@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="content" style="display: flex; justify-content: center; justify-items: center; ">
+<div class="content-inside" style="display: flex; flex-direction: column;  margin: 60px;">
+    <img src="{{data.image.url}}" style="height: 400px; width: 800px; box-shadow: 2px 2px 4px 2px rgb(90, 84, 84);">
+
+<form method="POST" action="" style="margin-top:40px ;">
+
+
+    
+
+    {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="submit">
+
+
+
+</form>
+</div>
+</div>
+{% endblock %}
